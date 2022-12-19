@@ -1,7 +1,7 @@
 package net.omisoft.aborovskoy.umoriliviper.ui.splash
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import net.omisoft.aborovskoy.umoriliviper.R
 import net.omisoft.aborovskoy.umoriliviper.app.App
 import net.omisoft.aborovskoy.umoriliviper.ui.splash.di.DaggerSplashComponent

@@ -3,9 +3,9 @@ package net.omisoft.aborovskoy.umoriliviper.ui.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -78,7 +78,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     private fun initView() {
-        val manager = LinearLayoutManager(this).apply { orientation = LinearLayoutManager.VERTICAL }
+        val manager = LinearLayoutManager(this)
+            .apply { orientation = LinearLayoutManager.VERTICAL }
         recyclerView.layoutManager = manager
         toolbar.setTitle(R.string.main_title)
         toolbar.setTitleTextColor(ContextCompat.getColor(this, android.R.color.white))

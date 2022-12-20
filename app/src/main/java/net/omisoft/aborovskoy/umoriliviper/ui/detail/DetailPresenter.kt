@@ -1,6 +1,6 @@
 package net.omisoft.aborovskoy.umoriliviper.ui.detail
 
-import net.omisoft.aborovskoy.umoriliviper.app.model.Joke
+import net.omisoft.aborovskoy.umoriliviper.app.model.TrendingRepo
 
 class DetailPresenter(private val router: DetailContract.Router) : DetailContract.Presenter {
 
@@ -14,8 +14,8 @@ class DetailPresenter(private val router: DetailContract.Router) : DetailContrac
         view = null
     }
 
-    override fun onViewCreated(joke: Joke) {
-        view?.publishData(joke)
+    override fun onViewCreated(trendingRepo: TrendingRepo) {
+        view?.publishData(trendingRepo)
     }
 
     override fun onEmptyData(msg: Int) {

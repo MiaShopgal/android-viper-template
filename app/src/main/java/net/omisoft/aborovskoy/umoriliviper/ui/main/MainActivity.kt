@@ -12,7 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import net.omisoft.aborovskoy.umoriliviper.R
 import net.omisoft.aborovskoy.umoriliviper.app.App
-import net.omisoft.aborovskoy.umoriliviper.app.model.Joke
+import net.omisoft.aborovskoy.umoriliviper.app.model.TrendingRepo
+import net.omisoft.aborovskoy.umoriliviper.app.model.TrendingResult
 import net.omisoft.aborovskoy.umoriliviper.ui.main.adapter.MainAdapter
 import net.omisoft.aborovskoy.umoriliviper.ui.main.di.DaggerMainComponent
 import net.omisoft.aborovskoy.umoriliviper.ui.main.di.MainComponent
@@ -64,10 +65,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         progressBar.visibility = View.GONE
     }
 
-    override fun publishData(data: List<Joke>) {
-        val adapter = MainAdapter(data, object : MainAdapter.JokeListener {
-            override fun onItemClick(joke: Joke) {
-                presenter.onItemClicked(joke)
+    override fun publishData(data: TrendingResult) {
+        val adapter = MainAdapter(data, object : MainAdapter.RepoListener {
+            override fun onItemClick(trendingRepo: TrendingRepo) {
+                presenter.onItemClicked(trendingRepo)
             }
         })
         recyclerView.adapter = adapter

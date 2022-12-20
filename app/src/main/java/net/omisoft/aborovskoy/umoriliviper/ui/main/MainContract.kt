@@ -1,13 +1,14 @@
 package net.omisoft.aborovskoy.umoriliviper.ui.main
 
 import io.reactivex.Single
-import net.omisoft.aborovskoy.umoriliviper.app.model.Joke
+import net.omisoft.aborovskoy.umoriliviper.app.model.TrendingRepo
+import net.omisoft.aborovskoy.umoriliviper.app.model.TrendingResult
 
 interface MainContract {
     interface View {
         fun showLoading()
         fun hideLoading()
-        fun publishData(data: List<Joke>)
+        fun publishData(data: TrendingResult)
         fun showMessage(msg: String)
     }
 
@@ -19,21 +20,21 @@ interface MainContract {
 
         fun onViewCreated()
 
-        fun onItemClicked(joke: Joke)
+        fun onItemClicked(trendingRepo: TrendingRepo)
 
         fun onBackClicked()
     }
 
     interface Interactor {
-        fun getJokes(onSuccess: (List<Joke>) -> Unit, onError: (Throwable) -> Unit)
+        fun getTrendingRepos(onSuccess: (TrendingResult) -> Unit, onError: (Throwable) -> Unit)
     }
 
     interface Router {
         fun finish()
-        fun openFullJoke(joke: Joke)
+        fun openFullRepo(trendingResult: TrendingRepo)
     }
 
     interface Repo {
-        fun getJokes(): Single<List<Joke>>
+        fun getTrendingRepos(): Single<TrendingResult>
     }
 }

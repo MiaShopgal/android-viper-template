@@ -1,6 +1,6 @@
 package net.omisoft.aborovskoy.umoriliviper.ui.main
 
-import net.omisoft.aborovskoy.umoriliviper.app.model.Joke
+import net.omisoft.aborovskoy.umoriliviper.app.model.TrendingRepo
 
 class MainPresenter(private val router: MainContract.Router, private val interactor: MainInteractor) :
     MainContract.Presenter {
@@ -18,14 +18,14 @@ class MainPresenter(private val router: MainContract.Router, private val interac
 
     override fun onViewCreated() {
         view?.showLoading()
-        interactor.getJokes({
+        interactor.getTrendingRepos({
             view?.hideLoading()
             view?.publishData(it)
         }, this::onError)
     }
 
-    override fun onItemClicked(joke: Joke) {
-        router.openFullJoke(joke)
+    override fun onItemClicked(trendingRepo: TrendingRepo) {
+        router.openFullRepo(trendingRepo)
     }
 
     override fun onBackClicked() {

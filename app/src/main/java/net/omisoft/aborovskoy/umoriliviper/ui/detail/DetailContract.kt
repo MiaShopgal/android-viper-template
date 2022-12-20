@@ -1,10 +1,10 @@
 package net.omisoft.aborovskoy.umoriliviper.ui.detail
 
-import net.omisoft.aborovskoy.umoriliviper.app.model.Joke
+import net.omisoft.aborovskoy.umoriliviper.app.model.TrendingRepo
 
 interface DetailContract {
     interface View {
-        fun publishData(joke: Joke)
+        fun publishData(trendingRepo: TrendingRepo)
 
         fun showMessage(msg: Int)
     }
@@ -14,7 +14,7 @@ interface DetailContract {
 
         fun unbindView()
 
-        fun onViewCreated(joke: Joke)
+        fun onViewCreated(trendingRepo: TrendingRepo)
 
         fun onBackClicked()
 
